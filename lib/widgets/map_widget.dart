@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:sabbar_challenge/delivery_state.dart';
+import 'package:sabbar_challenge/states/delivery_state.dart';
 import 'package:sabbar_challenge/models/delivery_listview_model.dart';
 
 import '../driver_simulator.dart';

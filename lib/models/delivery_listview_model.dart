@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:sabbar_challenge/delivery_state.dart';
+import 'package:sabbar_challenge/states/delivery_state.dart';
 
-import '../push_notification_util.dart';
+import '../utils/push_notification_util.dart';
 
 class DeliveryStateListViewModel extends ChangeNotifier {
   List<DeliveryStateViewModel> deliveryStates;

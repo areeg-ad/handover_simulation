@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'delivery_traker_page.dart';
+import 'pages/delivery_traker_page.dart';
 import 'models/delivery_listview_model.dart';
 
 void main() {
