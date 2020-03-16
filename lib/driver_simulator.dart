@@ -1,13 +1,16 @@
 import 'dart:math';
 
+import 'package:connectivity/connectivity.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DriverSimulator {
   var _firebaseRef;
+  var lastDriverLocation;
 
   DriverSimulator(DatabaseReference firebaseRef) {
     _firebaseRef = firebaseRef;
+    lastDriverLocation = driverRoute[0];
   }
 
   List<LatLng> driverRoute = [
@@ -36,13 +39,17 @@ class DriverSimulator {
   void updateDriverLocation() async {
     await Future.delayed(Duration(seconds: 5), () {});
 
-    for (LatLng latLng in driverRoute) {
+    for (int i = driverRoute.indexOf(lastDriverLocation); i <
+        driverRoute.length; i++) {
+      var connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult == ConnectivityResult.none)
+        break;
+
+      lastDriverLocation = driverRoute[i];
       Map<String, dynamic> values = Map();
-      values["latitude"] = latLng.latitude;
-      values["longitude"] = latLng.longitude;
-
+      values["latitude"] = lastDriverLocation.latitude;
+      values["longitude"] = lastDriverLocation.longitude;
       _firebaseRef.child("driver1").update(values);
-
       await Future.delayed(Duration(seconds: Random().nextInt(10)), () {});
     }
   }

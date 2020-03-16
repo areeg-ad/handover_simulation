@@ -27,7 +27,15 @@ dependencies:
   geolocator: '^5.0.0'
   firebase_database: ^3.0.4
   provider: ^4.0.4
+  connectivity: ^0.4.2
+  flutter_launcher_icons: "^0.7.3"
 
+
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
 
 
   # The following adds the Cupertino Icons font to your application.
